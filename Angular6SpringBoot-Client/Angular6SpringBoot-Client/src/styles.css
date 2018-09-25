@@ -1,0 +1,18 @@
+/*
+
+ body{
+   background: #acb6e5;
+     background: -webkit-linear-gradient(to right, #acb6e5, #86fde8);
+     background: linear-gradient(to right, #acb6e5, #86fde8);
+ }
+*/
+.trans{
+  width: 400px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}
+
+table,th,td{
+  border: 1px solid black;
+}

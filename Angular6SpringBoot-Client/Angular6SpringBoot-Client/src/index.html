@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Clientes</title>
+  <base href="/">
+
+  <script>
+  function Ctrl($scope) {
+    $scope.text = 'me@example.com';
+  }
+  </script>
+  <script language="JavaScript">
+  function isValidEmail(mail) {
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(mail);
+  }
+  function ValidaCorreo (rfcStr) {
+
+      console.log(isValidEmail(rfcStr));
+
+     if (isValidEmail(rfcStr)) {
+
+
+         console.log("Es correcto");
+         var mensajerfc = document.getElementById('mensajeerrorcorreo');
+           mensajerfc.setAttribute("style", "display: none;");
+
+         return true;
+ 
+    }
+    else
+    {
+      var mensajerfc = document.getElementById('mensajeerrorcorreo');
+        mensajerfc.setAttribute("style", "");
+      return false;
+    }
+
+  }
+
+  function ValidaRfc(rfcStr) {
+  	var strCorrecta;
+  	strCorrecta = rfcStr;
+  	if (rfcStr.length == 12){
+  	var valid = '^(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
+  	}else{
+  	var valid = '^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
+  	}
+  	var validRfc=new RegExp(valid);
+  	var matchArray=strCorrecta.match(validRfc);
+  	if (matchArray==null) {
+      var mensajerfc = document.getElementById('mensajerrorrfc');
+        mensajerfc.setAttribute("style", "");
+  		return false;
+  	}
+  	else
+  	{
+
+  		var boton = document.getElementById('boton');
+      boton.setAttribute("style", "");
+      var mensajerfc = document.getElementById('mensajerrorrfc');
+        mensajerfc.setAttribute("style", "display: none;");
+
+  		return true;
+  	}
+
+  }
+
+  </script>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

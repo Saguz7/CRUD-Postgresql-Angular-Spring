@@ -1,0 +1,60 @@
+<div>
+  <div class="col-md-offset-1">
+  <h1>Clientes</h1>
+</div>
+
+
+  <div class="container">
+       <table
+
+       class="table">
+       <tr>
+         <th>Nombre</th>
+           <th>Apellido</th>
+             <th>CURP</th>
+               <th>RFC</th>
+               <th>Razon Social</th>
+               <th>Correo</th>
+               <th>Direccion</th>
+       </tr>
+       <tr *ngFor="let client of clients | async">
+       <td *ngIf="client">
+         {{ client.name}}
+       </td>
+       <td *ngIf="client">
+         {{ client.lastName}}
+       </td>
+       <td *ngIf="client">
+         {{ client.curp}}
+       </td>
+       <td *ngIf="client">
+         {{ client.rfc}}
+       </td>
+       <td *ngIf="client">
+         {{ client.rs}}
+       </td>
+       <td *ngIf="client">
+         {{ client.email}}
+       </td>
+       <td *ngIf="client">
+         {{ client.address}}
+       </td>
+
+     </tr>
+
+
+
+  </table>
+</div>
+
+  <div class="container">
+<div *ngFor="let client of clients | async | paginate: {itemsPerPage:2, currentPage: p}" class="col-md-offset-1">
+  <client-details [client]='client'></client-details>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="container-fluid">
+  <pagination-controls (pageChange)="p =$event"></pagination-controls>
+</div>
+</div>

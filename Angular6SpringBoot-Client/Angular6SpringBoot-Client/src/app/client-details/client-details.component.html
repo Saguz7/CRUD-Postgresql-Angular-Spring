@@ -1,0 +1,51 @@
+<div *ngIf="client" class="col-md-5">
+
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="client.name" name="name" value={{client.name}} >
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Apellidos</label>
+      <input type="text" class="form-control" id="lastName" [(ngModel)]="client.lastName" name="lastName" value={{client.lastName}}>
+    </div>
+
+    <div class="form-group">
+      <label for="curp">CURP</label>
+      <input type="text" class="form-control" id="curp" [(ngModel)]="client.curp" name="curp" value={{client.curp}}>
+    </div>
+
+    <div class="form-group">
+      <label for="rs">Razon social</label>
+      <input type="text" class="form-control" id="rs" [(ngModel)]="client.rs" name="rs" value={{client.rs}}>
+    </div>
+
+    <div class="form-group">
+      <label for="rfc">RFC</label>
+      <input type="text" class="form-control" id="rfc" [(ngModel)]="client.rfc" name="rfc" value={{client.rfc}}>
+    </div>
+
+
+        <div class="form-group">
+          <label for="email">Correo</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="client.email" name="email" value={{client.email}}>
+        </div>
+
+
+                <div class="form-group">
+                  <label for="address">Direccion</label>
+                  <input type="text" class="form-control" id="address" [(ngModel)]="client.address" name="address" value={{client.address}}>
+                </div>
+  </form>
+
+
+  <div class="col-md-3 col-md-offset-2">
+    <button class="btn btn-primary" *ngIf='!client.active' (click)='updateActive(true)'>Modificar</button>
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+    <button class="btn btn-danger" (click)='deleteClient()'>Eliminar</button>
+  </div>
+
+</div>
